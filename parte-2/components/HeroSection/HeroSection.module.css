@@ -1,0 +1,513 @@
+/**
+ * HeroSection Styles
+ * Estilo inspirado no template Optimus - modern, minimal, bold
+ */
+
+/* ========================================
+   KEYFRAMES
+   ======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #09090b;
+  overflow: hidden;
+  padding: 6rem 1.5rem 4rem;
+}
+
+/* Background gradient */
+.backgroundGradient {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(168, 85, 247, 0.1), transparent),
+    radial-gradient(ellipse 60% 40% at 0% 100%, rgba(124, 58, 237, 0.08), transparent);
+  pointer-events: none;
+}
+
+/* Particle canvas */
+.particleCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Grid overlay */
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* ========================================
+   CONTAINER
+   ======================================== */
+
+.container {
+  position: relative;
+  z-index: 10;
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ========================================
+   BADGE
+   ======================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #a1a1aa;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ========================================
+   HEADLINE
+   ======================================== */
+
+.headline {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #fafafa;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.1s forwards;
+}
+
+.headlineRow {
+  display: block;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #a78bfa 0%, #c084fc 50%, #e879f9 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease-in-out infinite;
+}
+
+/* ========================================
+   SUBHEADLINE
+   ======================================== */
+
+.subheadline {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #71717a;
+  max-width: 540px;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+/* ========================================
+   BULLET GRID
+   ======================================== */
+
+.bulletGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+  width: 100%;
+  max-width: 400px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.3s forwards;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  color: #a1a1aa;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+}
+
+/* ========================================
+   CTA GROUP
+   ======================================== */
+
+.ctaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: 4rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+}
+
+/* Primary CTA */
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 1rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 
+    0 0 0 1px rgba(139, 92, 246, 0.5),
+    0 4px 16px rgba(139, 92, 246, 0.3),
+    0 8px 32px rgba(139, 92, 246, 0.15);
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 0 1px rgba(139, 92, 246, 0.6),
+    0 8px 24px rgba(139, 92, 246, 0.4),
+    0 16px 48px rgba(139, 92, 246, 0.2);
+}
+
+.arrowIcon {
+  transition: transform 0.25s ease;
+}
+
+.ctaPrimary:hover .arrowIcon {
+  transform: translateX(4px);
+}
+
+/* Secondary CTA */
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 1rem 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #d4d4d8;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.ctaSecondary:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ========================================
+   METRICS
+   ======================================== */
+
+.metricsContainer {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.5s forwards;
+}
+
+.metricsTrack {
+  display: flex;
+  gap: 1rem;
+  animation: scrollLeft 20s linear infinite;
+}
+
+.metricCard {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  min-width: 180px;
+  backdrop-filter: blur(8px);
+}
+
+.metricValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fafafa;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.metricLabel {
+  font-size: 0.8125rem;
+  color: #71717a;
+  margin-bottom: 0.75rem;
+}
+
+.metricCompany {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #a78bfa;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   BRANDS
+   ======================================== */
+
+.brandsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+.brandsLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #52525b;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.brandsTrack {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.brandsScroll {
+  display: flex;
+  gap: 3rem;
+  animation: scrollLeft 25s linear infinite;
+}
+
+.brandLogo {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #3f3f46;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+}
+
+/* ========================================
+   RESPONSIVE - Tablet
+   ======================================== */
+
+@media (min-width: 640px) {
+  .hero {
+    padding: 8rem 2rem 5rem;
+  }
+
+  .badge {
+    font-size: 0.875rem;
+    padding: 0.625rem 1.25rem;
+  }
+
+  .headline {
+    font-size: 3.5rem;
+  }
+
+  .subheadline {
+    font-size: 1.125rem;
+  }
+
+  .bulletGrid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+    gap: 1rem;
+  }
+
+  .bulletItem {
+    font-size: 1rem;
+  }
+
+  .ctaGroup {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
+    gap: 1rem;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .metricCard {
+    min-width: 200px;
+    padding: 1.5rem 1.75rem;
+  }
+
+  .metricValue {
+    font-size: 2rem;
+  }
+
+  .brandsScroll {
+    gap: 4rem;
+  }
+
+  .brandLogo {
+    font-size: 1rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - Desktop
+   ======================================== */
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 10rem 2rem 6rem;
+  }
+
+  .headline {
+    font-size: 4.5rem;
+  }
+
+  .subheadline {
+    font-size: 1.25rem;
+    max-width: 600px;
+  }
+
+  .bulletGrid {
+    max-width: 700px;
+  }
+
+  .bulletItem {
+    font-size: 1.0625rem;
+  }
+
+  .ctaPrimary {
+    padding: 1.125rem 2.25rem;
+  }
+
+  .metricCard {
+    min-width: 220px;
+  }
+
+  .metricValue {
+    font-size: 2.25rem;
+  }
+
+  .brandsScroll {
+    gap: 5rem;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .badge,
+  .headline,
+  .subheadline,
+  .bulletGrid,
+  .ctaGroup,
+  .metricsContainer,
+  .brandsSection {
+    animation: none;
+    opacity: 1;
+  }
+
+  .metricsTrack,
+  .brandsScroll {
+    animation: none;
+  }
+
+  .badgeDot {
+    animation: none;
+  }
+
+  .highlight {
+    animation: none;
+  }
+}
